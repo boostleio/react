@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 
-function WeatherForm({ fetchWeather, setUnit }) {
+function WeatherForm({ fetchWeather }) {
     const [city, setCity] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         fetchWeather(city);
         setCity('');
-    };
-
-    const handleUnitChange = (e) => {
-        setUnit(e.target.value);
     };
 
     return (
@@ -23,10 +19,6 @@ function WeatherForm({ fetchWeather, setUnit }) {
                 placeholder="Enter city name"
             />
             <button type="submit">Get Weather</button>
-            <select onChange={handleUnitChange} className="unit-select">
-                <option value="metric">Metric</option>
-                <option value="imperial">Imperial</option>
-            </select>
         </form>
     );
 }
